@@ -1134,7 +1134,8 @@ button:focus {
 
 .form-input:focus {
   border-color: var(--accent-color);
-  color: var(--accent-color);
+  fill: var(--accent-color);
+  color: inherit;
   outline: none;
   cursor: pointer;
 }
