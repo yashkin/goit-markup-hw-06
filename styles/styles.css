@@ -417,6 +417,7 @@ footer,
 }
 
 .footer-nav .title {
+  margin-bottom: 10px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -482,7 +483,8 @@ footer,
 }
 
 .address {
-  width: 231px;
+  display: flex;
+  flex-direction: column;
 }
 
 .address .link {
@@ -490,8 +492,6 @@ footer,
   transition-duration: 250ms;
   transition-timing-function: var(--timing-function);
 
-  padding-top: 9px;
-  padding-bottom: 9px;
   font-family: inherit;
   font-weight: 500;
   font-size: 14px;
@@ -533,7 +533,7 @@ footer,
   display: flex;
   width: 322px;
   height: 168px;
-  color: var(--white-color);
+  color: var(--primary-white-color);
 
   position: absolute;
   top: 50%;
@@ -672,9 +672,69 @@ button {
   font-family: inherit;
 }
 
-button:hover,
+/* button:hover,
 button:focus {
   color: var(--accent-color);
+} */
+
+.btn {
+  display: inline-flex;
+  min-width: 200px;
+  height: 50px;
+  padding: 10px 32px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1.88;
+
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mailing {
+  margin-left: 94px;
+}
+
+.mailing-form {
+  position: relative;
+  display: flex;
+}
+
+.mail-input {
+  display: inline-block;
+  width: 358px;
+  height: 50px;
+  padding-left: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #2f303a;
+}
+
+.btn.submit {
+  display: inline-flex;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-left: 12px;
+}
+
+.submit-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  fill: yellow;
 }
 
 .section-title {
@@ -839,4 +899,259 @@ button:focus {
   margin: -1px;
   padding: 0;
   border: 0;
+}
+
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  width: 528px;
+  height: 581px;
+  padding: 40px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  text-align: center;
+
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+.modal-title {
+  margin-block: 0;
+  margin: 0;
+  margin-bottom: 30px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: var(--title-text-color);
+}
+
+/* .form {
+
+    width: 528px;
+    height: 581px;
+
+} */
+
+.form-field {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.form-field.comm {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  position: absolute;
+  top: 12px;
+  left: 42px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-label.comment {
+  top: 12px;
+  left: 12px;
+}
+
+.btn.send {
+  display: inline-flex;
+
+  padding-left: 55px;
+  padding-right: 55px;
+}
+
+.form-input {
+  margin: 0;
+  padding: 12px;
+  padding-left: 42px;
+
+  width: 448px;
+  height: 40px;
+  color: rgba(33, 33, 33, 0.2);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input.comment {
+  height: 120px;
+  padding-top: 12px;
+  padding-left: 16px;
+  white-space: nowrap;
+  resize: none;
+}
+
+.policy {
+  display: flex;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+
+  color: var(--primary-text-color);
+}
+
+.terms {
+  display: block;
+  margin-left: 5px;
+  text-decoration: underline;
+  text-align: right;
+  color: var(--accent-color);
+}
+
+.check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.icon-check {
+  display: inline-block;
+  width: 16px;
+  height: 15px;
+  margin-right: 9px;
+
+  border: 2px solid var(--title-text-color);
+  background-color: var(--primary-white-color);
+  border-radius: 2px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check:checked + .icon-check {
+  background-color: var(--accent-color);
+  background-image: url(../images/icon-check.svg);
+  background-size: cover;
+  border-radius: 2px;
+  border-color: var(--accent-color);
+  background-origin: border-box;
+}
+
+.icon-input {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-50%);
+  fill: var(--title-text-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-close {
+  display: flex;
+  width: 15px;
+  height: 15px;
+
+  fill: currentColor;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  /* display: block; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: var(--primary-white-color);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.close-btn:hover .icon-close {
+  fill: var(--accent-color);
+}
+
+.form-input:focus {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  outline: none;
+  cursor: pointer;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  color: var(--accent-color);
+  transform: translate(-30px, -30px);
+}
+
+.form-input:focus + .form-label.comment,
+.form-input:not(:placeholder-shown) + .form-label.comment {
+  color: var(--accent-color);
+  transform: translateY(-30px);
+}
+
+.form-input:focus ~ .icon-input,
+.form-input:not(:placeholder-shown) ~ .icon-input {
+  fill: var(--accent-color);
 }
